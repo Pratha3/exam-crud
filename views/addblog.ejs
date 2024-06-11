@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Add Blog</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+		integrity="sha512-cp5lT1Q+qKlBFtThjX6oVSkAT9F3t8i43F4N/95yJa9fVX0B2e4pDv7r5xv6VJtV7MQz0fVet5dYr5MiDjXMOw=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<style>
+		body {
+			background-color: rgb(22, 22, 22);
+			font-family: Arial, sans-serif;
+		}
+
+		.container {
+			max-width: 800px;
+			margin: auto;
+			padding: 20px;
+			background: #0e0a0a;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			border-radius: 8px;
+			margin-top: 50px;
+		}
+
+		.form-container {
+			padding: 20px;
+			background-color: #292929;
+			border-radius: 8px;
+			margin-top: 20px;
+		}
+
+		.form-container input[type="text"],
+		.form-container textarea {
+			width: 100%;
+			padding: 10px;
+			margin-bottom: 10px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			font-size: 16px;
+			box-sizing: border-box;
+			background-color: #1f1f1f;
+			color: #d7dadc;
+		}
+
+		.form-container input[type="file"] {
+			margin-top: 10px;
+		}
+
+		.form-container button {
+			background-color: #ff7f00;
+			/* Orange color */
+			color: #fff;
+			border: none;
+			padding: 12px 20px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			border-radius: 4px;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+			/* Smooth hover transition */
+		}
+
+		.form-container button:hover {
+			background-color: #e06800;
+			/* Darker orange on hover */
+		}
+
+		.form-container h1 {
+			font-size: 24px;
+			font-weight: bold;
+			margin-bottom: 20px;
+			color: #fff;
+		}
+
+		.form-container img {
+			max-width: 100%;
+			height: auto;
+			margin-top: 10px;
+			border-radius: 8px;
+		}
+	</style>
+
+	</style>
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="form-container">
+			<form action="/addblog" method="POST" enctype="multipart/form-data">
+				<h1>Add Blog</h1>
+				<input type="text" id="title" name="title" placeholder="Title:" required />
+				<textarea name="description" id="description" placeholder="Description" required></textarea>
+				<input type="file" id="blogImage" name="blogImage" />
+				<button type="submit" name="submit">Add Blog</button>
+			</form>
+		</div>
+	</div>
+
+</body>
+
+</html>
