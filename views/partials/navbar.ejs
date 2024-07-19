@@ -1,0 +1,110 @@
+<nav class="navbar fixed top-0 left-0 right-0 shadow-md">
+    <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+        <div class="relative flex h-16 items-center justify-between">
+            <!-- Logo -->
+            <div class="flex items-start">
+                <img class="navbar-logo" src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
+                    alt="Amazon Logo">
+            </div>
+
+            <!-- Right side buttons -->
+            <div class="flex items-center space-x-4">
+                <a href="#" class="navbar-button">Home</a>
+                <a href="#" class="navbar-button">Popular</a>
+                <a href="#" class="navbar-button">All</a>
+                <!-- Profile button -->
+                <button class="navbar-button">
+                    <span class="sr-only">View profile</span>
+                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                        <path d="M10 10a3 3 0 100-6 3 3 0 000 6zm2 1h-4a4 4 0 00-4 4v1h12v-1a4 4 0 00-4-4z" />
+                    </svg>
+                </button>
+
+                <!-- Login button -->
+                <a href="/login" class="navbar-button login-button">Login</a>
+
+                <!-- Sign Up button -->
+                <a href="/signup" class="navbar-button signup-button">SignUp</a>
+
+                <!-- Logout button -->
+                <a href="/logout" class="navbar-button logout-button">Logout</a>
+            </div>
+        </div>
+    </div>
+</nav>
+<style>
+    .navbar {
+        background-color: #232f3e;
+        /* Amazon dark blue */
+    }
+
+    .navbar-logo {
+        height: 40px;
+        /* Adjust logo height */
+        width: auto;
+        /* Maintain aspect ratio */
+    }
+
+    .navbar a {
+        color: #ffffff;
+        /* White text */
+        transition: background-color 0.3s, color 0.3s;
+        /* Smooth transition */
+    }
+
+    .navbar a:hover {
+        background-color: #febd69;
+        /* Amazon yellow on hover */
+        color: #232f3e;
+        /* Dark blue text on hover */
+        border-radius: 0.25rem;
+        /* Rounded corners */
+    }
+
+    .navbar-button {
+        border-radius: 0.25rem;
+        /* Rounded corners for buttons */
+        padding: 0.5rem 1rem;
+        /* Padding for buttons */
+        font-weight: bold;
+        /* Bold text */
+        transition: background-color 0.3s;
+        /* Smooth transition for background color */
+    }
+
+    .login-button {
+        background-color: #febd69;
+        /* Amazon yellow for login button */
+        color: #232f3e;
+        /* Dark blue text */
+    }
+
+    .login-button:hover {
+        background-color: #f3a847;
+        /* Darker yellow on hover */
+    }
+
+    .signup-button {
+        background-color: #febd69;
+        /* Amazon yellow for sign-up button */
+        color: #232f3e;
+        /* Dark blue text */
+    }
+
+    .signup-button:hover {
+        background-color: #f3a847;
+        /* Darker yellow on hover */
+    }
+
+    .logout-button {
+        background-color: #e47911;
+        /* Amazon orange for logout button */
+        color: #ffffff;
+        /* White text */
+    }
+
+    .logout-button:hover {
+        background-color: #d34f1c;
+        /* Darker orange on hover */
+    }
+</style>

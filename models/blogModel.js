@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
 const blogSchema = new mongoose.Schema({
-    title :{
+    title: {
         type: 'string',
         required: true
     },
-    description :{
+    description: {
         type: 'string',
         required: true
     },

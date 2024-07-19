@@ -1,17 +1,16 @@
-const Blog = require('../models/blogModel');
+const multer = require('multer');
 const fs = require('fs');
+const Blog = require('../models/blogModel');
 const User = require('../models/user.schema')
-
 const Home = async (req, res) => {
     try {
         const blogs = await Blog.find();
-        res.render('index', { blogs });
+        return res.render('index', { blogs });
     }
     catch (error) {
         console.error(error);
         res.status(500).send('Server Error');
     }
-
 }
 const addblog = (req, res) => {
     return res.render('addblog')
@@ -28,8 +27,6 @@ const createblog = async (req, res) => {
         console.log(err);
     }
 }
-
-
 const showUpdateBlogForm = async (req, res) => {
     try {
         const blog = await Blog.findById(req.params.id); // TO FIND THE BLOG FROM THE THEIR ID .. WE WILL GET THE ID FROM THE THE BUTTON WHAT WE PRESS IN INDEX.EJS " /updateblog/<%= blog._id %> "
@@ -42,7 +39,6 @@ const showUpdateBlogForm = async (req, res) => {
         res.status(500).send('Server Error');
     }
 };
-
 const updateBlog = async (req, res) => {
     try {
         const { title, description } = req.body;
@@ -63,8 +59,8 @@ const updateBlog = async (req, res) => {
         res.status(500).send('Server Error');
     }
 };
-
 const deleteBlog = async (req, res) => {
+
     try {
         const { id } = req.params;
         const deletedBlog = await Blog.findByIdAndDelete(id);
@@ -80,16 +76,20 @@ const deleteBlog = async (req, res) => {
 const signUpPage = (req, res) => {
     return res.render("signup");
 };
-
 const logInPage = (req, res) => {
     return res.render("login");
 };
-
 const logout = (req, res) => {
-    res.clearCookie('USER');
-    res.redirect('/login');
+    req.logout((err) => {
+        if (err) {
+            console.log(err);
+            return false;
+        }
+        console.log('logout Successfully');
+    })
+    // res.clearCookie('USER');
+    return res.redirect('/login');
 };
-
 const signUp = async (req, res) => {
     try {
         await User.create(req.body);
@@ -99,7 +99,6 @@ const signUp = async (req, res) => {
         res.status(500).send('Server Error');
     }
 };
-
 const logIn = async (req, res) => {
     const { email, password } = req.body;
     try {
@@ -115,8 +114,6 @@ const logIn = async (req, res) => {
         res.status(500).send('Server Error');
     }
 };
-
-
 module.exports = {
     Home, addblog, createblog, showUpdateBlogForm, updateBlog, deleteBlog, signUpPage, logInPage, logout, signUp, logIn
 }

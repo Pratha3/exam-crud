@@ -9,3 +9,5 @@ const userSchema = new mongoose.Schema({
 const userDb = mongoose.model("userTbl", userSchema)
 
 module.exports = userDb;
+
+

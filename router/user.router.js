@@ -1,5 +1,6 @@
+const passport = require('passport');
 const { Router } = require("express");
-const { addblog, Home, createblog, showUpdateBlogForm, updateBlog, deleteBlog, signUpPage, signUp, logInPage, logIn, logout } = require("../controllers/user.controller");
+const { Home, addblog, createblog, showUpdateBlogForm, updateBlog, deleteBlog, signUpPage, signUp, logInPage, logIn, logout } = require("../controllers/user.controller");
 const upload = require('../middleware/multer');
 const router = Router();
 const { userAuth } = require("../middleware/blog.auth")
@@ -16,7 +17,10 @@ router.post("/signup", signUp);
 router.get("/login", logInPage);
 router.post("/login", logIn);
 router.get("/logout", logout)
+router.post('/login', passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: '/login'
+}));
 
 
 module.exports = router;
-
